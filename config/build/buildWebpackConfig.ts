@@ -4,9 +4,10 @@ import { IBuildOptions } from "./types/config";
 import { buildPlugins } from './buildPlugins';
 import { buildLoaders } from './buildLoaders';
 import { buildResolvers } from './buildResolvers';
+import { buildDevServer } from './buildDevServer';
 
 export function buildWebpackConfig(options: IBuildOptions): Configuration {
-    const { paths, mode } = options;
+    const { paths, mode, isDev } = options;
 
     return {
         mode: mode,
@@ -20,6 +21,12 @@ export function buildWebpackConfig(options: IBuildOptions): Configuration {
         module: {
             rules: buildLoaders(),
         },
-        resolve: buildResolvers()
+        resolve: buildResolvers(),
+        devServer: isDev ? buildDevServer(options) : undefined,
+        devtool: isDev ? 'inline-source-map' : undefined,
+        // target: isDev ? 'web' : 'browserslist',
+        watchOptions: {
+            poll: true,
+        }
     }
 }

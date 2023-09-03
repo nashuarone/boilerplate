@@ -1,4 +1,4 @@
 export function testPrint(arg: number): string {
-    console.log('test log')
+    console.log('%c test log O_o', 'color: magenta')
     return ''
 }
