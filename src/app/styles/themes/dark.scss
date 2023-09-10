@@ -1,0 +1,8 @@
+.app.dark {
+    --bg-color: oklch(35% 0 0);
+    --inverted-bg-color: oklch(98% 0 0);
+
+    --primary-color: oklch(65% 0.18 250);
+    --primary-color-active: oklch(65% 0.18 300);
+    --secondary-color: oklch(65% 0.1 250);
+}

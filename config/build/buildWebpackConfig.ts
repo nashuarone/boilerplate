@@ -1,4 +1,3 @@
-import path from 'path';
 import { Configuration } from "webpack";
 import { IBuildOptions } from "./types/config";
 import { buildPlugins } from './buildPlugins';
@@ -21,7 +20,7 @@ export function buildWebpackConfig(options: IBuildOptions): Configuration {
         module: {
             rules: buildLoaders(options),
         },
-        resolve: buildResolvers(),
+        resolve: buildResolvers(options),
         devServer: isDev ? buildDevServer(options) : undefined,
         devtool: isDev ? 'inline-source-map' : undefined,
         // target: isDev ? 'web' : 'browserslist',

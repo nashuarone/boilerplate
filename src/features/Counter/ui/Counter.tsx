@@ -12,5 +12,5 @@ export const Counter = () => {
             <h1>{count}</h1>
             <button className={classes.btn} onClick={increment}>increment</button>
         </div>
-    )
-}
+    );
+};
