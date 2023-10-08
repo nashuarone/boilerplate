@@ -2,6 +2,7 @@ import "./styles/index.scss";
 import { useTheme } from 'app/providers/ThemeProvider';
 import { AppRouter } from 'app/providers/router';
 import { Navbar } from "widgets/Navbar";
+import { Sidebar } from "widgets/Sidebar";
 
 export enum Theme {
     LIGHT = 'light',
@@ -14,8 +15,10 @@ const App = () => {
     return (
         <div className={`app ${theme}`}>
             <Navbar />
-            TEXTTEXTTEXT
-            <AppRouter />
+            <div className="content">
+                <Sidebar />
+                <AppRouter />
+            </div>
         </div>
     )
 }
