@@ -1,6 +1,7 @@
 import "./styles/index.scss";
 import { useTheme } from 'app/providers/ThemeProvider';
 import { AppRouter } from 'app/providers/router';
+import { Suspense } from "react";
 import { Navbar } from "widgets/Navbar";
 import { Sidebar } from "widgets/Sidebar";
 
@@ -14,11 +15,13 @@ const App = () => {
 
     return (
         <div className={`app ${theme}`}>
-            <Navbar />
-            <div className="content">
-                <Sidebar />
-                <AppRouter />
-            </div>
+            <Suspense fallback="translating...">
+                <Navbar />
+                <div className="content">
+                    <Sidebar />
+                    <AppRouter />
+                </div>
+            </Suspense>
         </div>
     )
 }
